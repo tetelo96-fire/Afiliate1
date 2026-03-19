@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Minha Vitrine Amazon</title>
+    <meta
+      name="description"
+      content="Site de afiliado para divulgar produtos da Amazon com painel admin editavel em tempo real."
+    />
+    <link rel="stylesheet" href="/src/styles.css" />
+  </head>
+  <body>
+    <header class="hero" id="hero">
+      <img id="heroImage" alt="Imagem principal" class="hero-image" />
+      <div class="hero-overlay"></div>
+      <div class="hero-content container">
+        <div class="topbar">
+          <p id="brand" class="brand"></p>
+          <button id="toggleAdminBtn" class="button button-ghost" type="button">Abrir admin</button>
+        </div>
+        <div class="hero-copy">
+          <h1 id="headline"></h1>
+          <p id="subheadline"></p>
+          <a id="cta" class="button button-primary" target="_self"></a>
+        </div>
+      </div>
+    </header>
+
+    <main id="produtos" class="container main-content">
+      <section class="section-head">
+        <h2 id="sectionTitle"></h2>
+        <p id="sectionSubtitle"></p>
+      </section>
+      <section id="productsGrid" class="products-grid"></section>
+    </main>
+
+    <footer class="footer">
+      <p id="footerText"></p>
+    </footer>
+
+    <div id="adminModal" class="modal" aria-hidden="true">
+      <aside class="admin-panel" role="dialog" aria-modal="true" aria-label="Painel admin">
+        <div class="admin-head">
+          <p>Painel administrativo</p>
+          <button id="closeAdminBtn" class="button button-ghost" type="button">Fechar</button>
+        </div>
+
+        <section id="adminLogin" class="stack">
+          <h3>Login admin</h3>
+          <p>Entre para editar layout, textos, produtos, imagens e links.</p>
+          <label>
+            <span>Senha</span>
+            <input id="adminPasswordInput" type="password" placeholder="Digite a senha" />
+          </label>
+          <button id="adminLoginBtn" class="button button-primary" type="button">Entrar</button>
+          <small>Senha inicial: admin123</small>
+        </section>
+
+        <section id="adminEditor" class="stack hidden">
+          <div class="admin-actions">
+            <h3>Editor em tempo real</h3>
+            <button id="logoutAdminBtn" class="button button-ghost" type="button">Sair</button>
+          </div>
+
+          <details open>
+            <summary>Textos e links</summary>
+            <label><span>Marca</span><input id="inputBrand" type="text" /></label>
+            <label><span>Titulo principal</span><input id="inputHeadline" type="text" /></label>
+            <label><span>Subtitulo</span><textarea id="inputSubheadline" rows="3"></textarea></label>
+            <label><span>Imagem hero (URL)</span><input id="inputHeroImage" type="url" /></label>
+            <label><span>Texto CTA</span><input id="inputCtaText" type="text" /></label>
+            <label><span>Link CTA</span><input id="inputCtaUrl" type="text" /></label>
+            <label><span>Titulo secao</span><input id="inputSectionTitle" type="text" /></label>
+            <label><span>Subtitulo secao</span><input id="inputSectionSubtitle" type="text" /></label>
+            <label><span>Rodape</span><textarea id="inputFooterText" rows="2"></textarea></label>
+          </details>
+
+          <details>
+            <summary>Cores</summary>
+            <label><span>Fundo 1</span><input id="inputBgFrom" type="color" /></label>
+            <label><span>Fundo 2</span><input id="inputBgTo" type="color" /></label>
+            <label><span>Cor primaria</span><input id="inputPrimary" type="color" /></label>
+            <label><span>Cor destaque</span><input id="inputAccent" type="color" /></label>
+          </details>
+
+          <details open>
+            <summary>Produtos</summary>
+            <div class="admin-row">
+              <button id="addProductBtn" class="button button-primary" type="button">Adicionar produto</button>
+            </div>
+            <div id="adminProductsList" class="stack"></div>
+          </details>
+
+          <details>
+            <summary>Seguranca</summary>
+            <label><span>Nova senha admin</span><input id="newPasswordInput" type="password" /></label>
+            <button id="changePasswordBtn" class="button button-primary" type="button">Alterar senha</button>
+          </details>
+
+          <details>
+            <summary>Backup</summary>
+            <div class="admin-row">
+              <button id="exportBtn" class="button button-ghost" type="button">Exportar JSON</button>
+              <button id="importBtn" class="button button-ghost" type="button">Importar JSON</button>
+              <button id="resetBtn" class="button button-danger" type="button">Restaurar padrao</button>
+            </div>
+          </details>
+        </section>
+      </aside>
+    </div>
+
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>
