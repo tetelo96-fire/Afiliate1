@@ -1,0 +1,29 @@
+@import "tailwindcss";
+
+@keyframes hero-zoom {
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(1.08);
+  }
+}
+
+@keyframes rise-in {
+  0% {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-hero-zoom {
+  animation: hero-zoom 16s ease-in-out infinite alternate;
+}
+
+.animate-rise-in {
+  animation: rise-in 700ms ease-out both;
+}
